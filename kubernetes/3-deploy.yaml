@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: teste-site
+  namespace: teste-site
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: teste-site
+  template:
+    metadata:
+      labels:
+        app: teste-site
+    spec:
+      containers:
+      - name: teste-site
+        image: shotofw/koerich
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5000
